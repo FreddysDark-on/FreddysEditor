@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - FreddysDarkON</title>
+
+  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="contacts.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="nav-links">
+      <a href="index.html" data-lang="nav_home">INICIO</a>
+      <a href="https://ytjobs.co/talent/vitrine/437788" target="_blank" data-lang="nav_portfolio">PORTAFOLIO</a>
+      <a href="index.html#precios" data-lang="nav_prices">PRECIOS</a>
+      <a href="contacts.html" data-lang="nav_contact">CONTACTO</a>
+      <a href="payments.html" data-lang="nav_payments">PAGOS</a>
+    </div>
+
+    <div class="nav-controls">
+      <div class="lang-switch">
+        <button id="btn-es" onclick="setLanguage('es')">ESP</button>
+        <button id="btn-en" onclick="setLanguage('en')">ENG</button>
+      </div>
+      <button id="theme-toggle" class="theme-button">
+        <img id="theme-icon" src="assets/hud/modeOff.png" alt="Cambiar tema">
+      </button>
+    </div>
+  </div>
+
+  <section class="contact-section">
+    <h1 data-lang="contact_title">Contacto</h1>
+    <p class="contact-subtitle" data-lang="contact_sub">Podés comunicarte conmigo por cualquiera de estos medios 👇</p>
+
+    <div class="contact-container">
+
+      <div class="contact-box">
+        <img src="assets/imagenes/discord.png" alt="Discord">
+        <h3 data-lang="contact_discord">Discord</h3>
+        <p class="user">@freddysdarkon</p>
+      </div>
+
+      <div class="contact-box">
+        <img src="assets/imagenes/gmail.webp" alt="Gmail">
+        <h3 data-lang="contact_mail">Correo</h3>
+        <p class="user">freddysdarkon.info@gmail.com</p>
+      </div>
+
+      <div class="contact-box">
+        <img src="assets/imagenes/X.png" alt="Twitter / X">
+        <h3 data-lang="contact_twitter">Twitter (X)</h3>
+        <p class="user">@FreddysDarkON</p>
+      </div>
+
+    </div>
+
+    <a href="index.html" class="btn volver-btn" data-lang="btn_back">⬅ Volver al inicio</a>
+  </section>
+
+  <script src="modo.js"></script>
+  <script src="language.js"></script>
+</body>
+</html>

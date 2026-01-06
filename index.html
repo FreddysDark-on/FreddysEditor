@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreddysDarkON Editor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=5">
+
+  <style>
+    /* Estilo del video de presentación */
+    .video-presentation-box {
+      flex: 1;
+      max-width: 550px; /* Un poco más grande estilo cine */
+      min-width: 320px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(104, 104, 255, 0.15); /* Resplandor sutil */
+      border: 2px solid #6868ff;
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+    .video-presentation-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="nav-links">
+      <a href="#" data-lang="nav_home">INICIO</a>
+      <a href="https://ytjobs.co/talent/vitrine/437788" target="_blank" data-lang="nav_portfolio">PORTAFOLIO</a>
+      <a href="#precios" data-lang="nav_prices">PRECIOS</a>
+      <a href="contacts.html" data-lang="nav_contact">CONTACTO</a>
+      <a href="payments.html" data-lang="nav_payments">PAGOS</a>
+    </div>
+
+    <div class="nav-controls">
+      <div class="lang-switch">
+        <button id="btn-es" onclick="setLanguage('es')">ESP</button>
+        <button id="btn-en" onclick="setLanguage('en')">ENG</button>
+      </div>
+
+      <button id="theme-toggle" class="theme-button">
+        <img id="theme-icon" src="assets/hud/modeOff.png" alt="Cambiar tema">
+      </button>
+    </div>
+  </div>
+
+  <div class="content">
+    
+    <div class="video-presentation-box">
+      <iframe 
+        src="https://www.youtube.com/embed/I08PYkhi8Lg" 
+        title="Presentación FreddysDarkON" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="bio">
+      <h2>FreddysDarkON</h2>
+      <em data-lang="bio_role">editor de videos</em>
+      <p data-lang="bio_p1">
+        Editaré todo tipo de <strong>videos</strong> que necesites, ya sean en formato
+        <strong>horizontal</strong> o <strong>vertical</strong>
+        (gameplays, vlogs, podcasts, reseñas, tutoriales, reels, shorts, TikToks y mucho más)
+        con la duración que vos prefieras y para cualquier <strong>red social</strong>
+      </p>
+
+      <p data-lang="bio_p2">
+        Tu video en bruto se transformará en un contenido más
+        <strong>entretenido</strong>, <strong>dinámico</strong>, <strong>detallado</strong> y
+        <strong>divertido</strong>, pensado para que tus espectadores se mantengan
+        enganchados de principio a fin
+      </p>
+
+      <p data-lang="bio_p3">
+        <strong>Ya no tendrás que preocuparte por las largas horas que tendras dedicarle a tu edición en tus videos.</strong>
+        Con mi ayuda te ahorrás todo ese tiempo y estres, para que
+        sigas creciendo
+      </p>
+    </div>
+  </div>
+
+  <div class="tools-section">
+    <h3 data-lang="tools_title">Herramientas que uso</h3>
+    <div class="tools-logos">
+      <div class="tool">
+        <img src="assets/imagenes/PremiereLogo.png" alt="Adobe Premiere Pro">
+        <span>Premiere Pro</span>
+      </div>
+      <div class="tool">
+        <img src="assets/imagenes/AfterLogo.png" alt="Adobe After Effects">
+        <span>After Effects</span>
+      </div>
+      <div class="tool">
+        <img src="assets/imagenes/PhotoshopLogo.png" alt="Adobe Photoshop">
+        <span>Photoshop</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="videos-section">
+    <h2 data-lang="videos_title">Edité estos videos y más!</h2>
+    <div class="videos-container">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/aK0RhImYEq0" title="Video 1" allowfullscreen></iframe>
+      </div>
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/O8M6ws55YwM" title="Video 2" allowfullscreen></iframe>
+      </div>
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/QX3yoyJvJiQ" title="Video 3" allowfullscreen></iframe>
+      </div>
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/Nr0oqcXib9Q" title="Video 4" allowfullscreen></iframe>
+      </div>
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/XPyRkFX3oqg" title="Video 5" allowfullscreen></iframe>
+      </div>
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/en1rivOi9P8" title="Video 6" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <p class="portfolio-text">
+      <span data-lang="portfolio_text">En mi <strong>portafolio</strong> puedes verlos todos por si te da curiosidad ;)</span>
+    </p>
+  </div>
+
+  <div class="creators-section">
+    <h2 data-lang="creators_title">Trabajé para estos creadores</h2>
+    <div class="creators-container">
+      <a href="https://www.youtube.com/@AleWang" target="_blank" class="creator-box">
+        <img src="assets/imagenes/aleWang.webp" alt="Ale Wang">
+        <span class="creator-name">Ale Wang</span>
+        <span class="creator-subs">2.2M subs</span>
+      </a>
+      <a href="https://www.youtube.com/@alewangblox" target="_blank" class="creator-box">
+        <img src="assets/imagenes/aleWangBlox.webp" alt="AleWangBlox">
+        <span class="creator-name">AleWangBlox</span>
+        <span class="creator-subs">169k subs</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="pricing-section">
+    
+    <div class="pricing-category" id="precios">
+      <h3 class="category-title" data-lang="cat_horiz_title">☆ VIDEOS HORIZONTALES ☆</h3>
+      <p class="category-description" data-lang="cat_horiz_desc">Videos horizontales para tus Gameplays, Podcasts, Vlogs, etc</p>
+
+      <div class="pricing-container">
+        
+        <div class="pricing-box">
+          <h4 data-lang="plan_basic">Plan Básico</h4>
+          <p class="price">$30 USD</p>
+          <p class="price-detail" data-lang="price_base_10">Base (Hasta 10 min)</p>
+          <ul>
+            <li data-lang="feat_extra_3">Minuto extra: +$3 USD</li>
+            <li data-lang="feat_trans_basic">Transiciones básicas</li>
+            <li data-lang="feat_zoom">Zooms</li>
+            <li data-lang="feat_subs">Subtítulos</li>
+            <li data-lang="feat_sfx_basic">Efectos de sonido básicos</li>
+            <li data-lang="time_1_2">Plazo 1-2 días</li>
+            <li data-lang="rev_3">3 Revisiones</li>
+            <li class="not-included" data-lang="no_motion">Motion Graphics</li>
+            <li class="not-included" data-lang="no_motion2">Gráficos</li>
+          </ul>
+          <a href="contacts.html" class="btn" data-lang="btn_work">Trabajemos juntos</a>
+          <a href="https://drive.google.com/drive/folders/13xWfXrXg5w56murx2mQstES-74-fz6vG?usp=sharing" class="btn-ejemplos" target="_blank" data-lang="btn_examples">Ver ejemplos</a>
+        </div>
+
+        <div class="pricing-box">
+          <h4 data-lang="plan_standard">Plan Estándar</h4>
+          <p class="price">$80 USD</p>
+          <p class="price-detail" data-lang="price_base_10">Base (Hasta 10 min)</p>
+          <ul>
+            <li data-lang="feat_extra_6">Minuto extra: +$6 USD</li>
+            <li data-lang="feat_all_above">Todo lo anterior</li>
+            <li data-lang="feat_sfx_better">Mejores sonidos</li>
+            <li data-lang="feat_motion_basic">Motion Graphics básico</li>
+            <li data-lang="time_1_4">Plazo 1-4 días</li>
+            <li data-lang="rev_6">6 Revisiones</li>
+            <li class="not-included" data-lang="no_motion2">Gráficos</li>
+          </ul>
+          <a href="contacts.html" class="btn" data-lang="btn_work">Trabajemos juntos</a>
+          <a href="https://drive.google.com/drive/folders/1Jee84c5K4HlzeuU25M-ib2ywEdNIFKMe?usp=sharing" class="btn-ejemplos" target="_blank" data-lang="btn_examples">Ver ejemplos</a>
+        </div>
+
+        <div class="pricing-box featured">
+          <div class="featured-badge" data-lang="badge_rec">RECOMENDADO</div>
+          <h4 data-lang="plan_advanced">Plan Avanzado</h4>
+          <p class="price">$100 USD</p>
+          <p class="price-detail" data-lang="price_base_10">Base (Hasta 10 min)</p>
+          <ul>
+            <li data-lang="feat_extra_8">Minuto extra: +$8 USD</li>
+            <li data-lang="feat_all_above">Todo lo anterior</li>
+            <li data-lang="feat_music_dyn">Música dinámica</li>
+            <li data-lang="feat_motion_adv">Motion Graphics 2D + 3D</li>
+            <li data-lang="feat_graphics">Gráficos</li>
+            <li data-lang="time_2_6">Plazo 2-6 días</li>
+            <li data-lang="rev_unlim">Revisiones ilimitadas</li>
+          </ul>
+          <a href="contacts.html" class="btn" data-lang="btn_work">Trabajemos juntos</a>
+          <a href="https://drive.google.com/drive/folders/10IE4mmXnJn81qfJZdPXSsQzK2BdT3LfZ?usp=sharing" class="btn-ejemplos" target="_blank" data-lang="btn_examples">Ver ejemplos</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-category">
+      <h3 class="category-title" data-lang="cat_vert_title">☆ VIDEOS VERTICALES ☆</h3>
+      <p class="category-description" data-lang="cat_vert_desc">Videos verticales para Shorts, TikTok, Reels e Instagram</p>
+
+      <div class="pricing-container">
+        
+        <div class="pricing-box">
+          <h4 data-lang="plan_basic">Plan Básico</h4>
+          <p class="price">6 USD <span style="font-size:0.5em">/Video</span></p>
+          <ul style="margin-top: 20px;">
+            <li data-lang="feat_trans_basic">Transiciones básicas</li>
+            <li data-lang="feat_zoom">Zooms</li>
+            <li data-lang="feat_subs">Subtítulos</li>
+            <li data-lang="feat_sfx_basic">Efectos de sonido básicos</li>
+            <li data-lang="time_1_2">Plazo 1-2 días</li>
+            <li data-lang="rev_3">3 Revisiones</li>
+            <li class="not-included" data-lang="no_motion">Motion Graphics</li>
+            <li class="not-included" data-lang="no_graphics">Gráficos</li>
+          </ul>
+          <a href="contacts.html" class="btn" data-lang="btn_work">Trabajemos juntos</a>
+          <a href="https://drive.google.com/drive/folders/1DWfhihd0rwEx2u4r0LRF7nrqD3xNBIHK?usp=sharing" class="btn-ejemplos" target="_blank" data-lang="btn_examples">Ver ejemplos</a>
+        </div>
+
+        <div class="pricing-box">
+          <h4 data-lang="plan_standard">Plan Estándar</h4>
+          <p class="price">12 USD <span style="font-size:0.5em">/Video</span></p>
+          <ul style="margin-top: 20px;">
+            <li data-lang="feat_all_above">Todo lo anterior</li>
+            <li data-lang="feat_sfx_better">Mejores sonidos</li>
+            <li data-lang="feat_motion_basic">Motion Graphics básico</li>
+            <li data-lang="feat_dynamic">Dinámico</li>
+            <li data-lang="time_1_3">Plazo 1-3 días</li>
+            <li data-lang="rev_6">6 Revisiones</li>
+            <li class="not-included" data-lang="no_graphics">Gráficos</li>
+          </ul>
+          <a href="contacts.html" class="btn" data-lang="btn_work">Trabajemos juntos</a>
+          <a href="https://drive.google.com/drive/folders/1YX2mwlzw8wHLKHcsrjMWjuQSCYa3ceyA?usp=sharing" class="btn-ejemplos" target="_blank" data-lang="btn_examples">Ver ejemplos</a>
+        </div>
+
+        <div class="pricing-box featured">
+          <div class="featured-badge" data-lang="badge_rec">RECOMENDADO</div>
+          <h4 data-lang="plan_advanced">Plan Avanzado</h4>
+          <p class="price">20 USD <span style="font-size:0.5em">/Video</span></p>
+          <ul style="margin-top: 20px;">
+            <li data-lang="feat_all_above">Todo del plan Estándar</li>
+            <li data-lang="feat_music_dyn">Música dinámica</li>
+            <li data-lang="feat_motion_adv">Motion Graphics 2D + 3D</li>
+            <li data-lang="feat_graphics">Gráficos</li>
+            <li data-lang="time_1_4">Plazo 1-4 días</li>
+            <li data-lang="rev_unlim">Revisiones ilimitadas</li>
+          </ul>
+          <a href="contacts.html" class="btn" data-lang="btn_work">Trabajemos juntos</a>
+          <a href="https://drive.google.com/drive/folders/1BgHmayBX69Q-grskadkLcrkke_8AbhFT?usp=sharing" class="btn-ejemplos" target="_blank" data-lang="btn_examples">Ver ejemplos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shorts-section">
+    <h2 data-lang="shorts_offer_title">► OFERTA de Videos Cortos</h2>
+    <p class="section-subtitle" data-lang="shorts_offer_sub">(Ahorrate algo)</p>
+
+    <div class="shorts-container">
+      <div class="shorts-box">
+        <h4 data-lang="pack_3">3 Shorts</h4>
+        <p class="shorts-count" data-lang="pack_ideal_start">Ideal para empezar</p>
+        <div class="shorts-price">15$</div>
+        <div class="per-short">$5 / short</div>
+        <li data-lang="time_1_2">Plazo 1-2 días</li>
+        <div class="features-note" data-lang="feat_basic_char">Características del Plan Básico</div>
+        <a href="contacts.html" class="btn" data-lang="btn_work">Trabajemos juntos</a>
+      </div>
+
+      <div class="shorts-box popular">
+        <div class="popular-badge" data-lang="badge_pop">MÁS POPULAR</div>
+        <h4 data-lang="pack_5">5 Shorts</h4>
+        <p class="shorts-count" data-lang="pack_active">Para creadores algo activos</p>
+        <div class="shorts-price">24$</div>
+        <div class="per-short">$4.8 / short</div>
+        <li data-lang="time_1_3">Plazo 1-3 días</li>
+        <div class="features-note" data-lang="feat_basic_char">Características del Plan Básico</div>
+        <a href="contacts.html" class="btn" data-lang="btn_work">Trabajemos juntos</a>
+      </div>
+
+      <div class="shorts-box">
+        <h4 data-lang="pack_10">10 Shorts</h4>
+        <p class="shorts-count" data-lang="pack_pro">Para creadores activos</p>
+        <div class="shorts-price">45$</div>
+        <div class="per-short">$4.5 / short</div>
+        <li data-lang="time_1_4">Plazo 1-4 días</li>
+        <div class="features-note" data-lang="feat_basic_char">Características del Plan Básico</div>
+        <a href="contacts.html" class="btn" data-lang="btn_work">Trabajemos juntos</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="modo.js"></script>
+  <script src="language.js"></script> 
+</body>
+</html>
