@@ -439,6 +439,7 @@ body {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+
 }
 
 .pricing-container {
@@ -461,7 +462,7 @@ body {
   text-align: center;
   color: var(--color-text);
   position: relative;
-  overflow: hidden;
+  
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -498,15 +499,7 @@ body {
   box-shadow: 0 4px 12px var(--color-shadow);
 }
 
-.pricing-box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--color-gradient-start), var(--color-gradient-end));
-}
+
 
 .pricing-box h4 {
   font-weight: 800;
@@ -657,20 +650,16 @@ body {
   text-align: center;
   color: var(--color-text);
   position: relative;
-  overflow: hidden;
+
   display: flex;
   flex-direction: column;
 }
 
-.shorts-box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--color-gradient-start), var(--color-gradient-end));
+
+li::marker {
+  content: "";    
 }
+
 
 .shorts-box:hover {
   transform: translateY(-10px);
