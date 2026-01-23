@@ -10,17 +10,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=5">
-
-  <style>
+  <link rel="stylesheet" href="style.css?v=6"> <style>
     /* Estilo del video de presentación */
     .video-presentation-box {
       flex: 1;
-      max-width: 550px; /* Un poco más grande estilo cine */
+      max-width: 550px;
       min-width: 320px;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 0 30px rgba(104, 104, 255, 0.15); /* Resplandor sutil */
+      box-shadow: 0 0 30px rgba(104, 104, 255, 0.15);
       border: 2px solid #6868ff;
       aspect-ratio: 16/9;
       background: #000;
@@ -159,11 +157,23 @@
       <h3 class="category-title" data-lang="cat_horiz_title">☆ VIDEOS HORIZONTALES ☆</h3>
       <p class="category-description" data-lang="cat_horiz_desc">Videos horizontales para tus Gameplays, Podcasts, Vlogs, etc</p>
 
+      <div class="calculator-wrapper">
+        <div class="calculator-box">
+          <span class="calc-label">⏱️ ¿Cuánto dura tu video crudo (RAW)?</span>
+          <div class="calc-inputs">
+            <input type="number" id="input-min" placeholder="0" min="0" oninput="calcularPrecios()">
+            <span>min</span>
+            <input type="number" id="input-sec" placeholder="00" min="0" max="59" oninput="calcularPrecios()">
+            <span>seg</span>
+          </div>
+          <p class="calc-note">*Ingresa el tiempo para calcular el costo exacto.</p>
+        </div>
+      </div>
       <div class="pricing-container">
         
         <div class="pricing-box">
           <h4 data-lang="plan_basic">Plan Básico</h4>
-          <p class="price">$30 USD</p>
+          <p class="price" id="price-basic">$30 USD</p>
           <p class="price-detail" data-lang="price_base_10">Base (Hasta 10 min)</p>
           <ul>
             <li data-lang="feat_extra_3">Minuto extra: +$3 USD</li>
@@ -182,7 +192,7 @@
 
         <div class="pricing-box">
           <h4 data-lang="plan_standard">Plan Estándar</h4>
-          <p class="price">$80 USD</p>
+          <p class="price" id="price-standard">$80 USD</p>
           <p class="price-detail" data-lang="price_base_10">Base (Hasta 10 min)</p>
           <ul>
             <li data-lang="feat_extra_6">Minuto extra: +$6 USD</li>
@@ -200,7 +210,7 @@
         <div class="pricing-box featured">
           <div class="featured-badge" data-lang="badge_rec">RECOMENDADO</div>
           <h4 data-lang="plan_advanced">Plan Avanzado</h4>
-          <p class="price">$100 USD</p>
+          <p class="price" id="price-advanced">$100 USD</p>
           <p class="price-detail" data-lang="price_base_10">Base (Hasta 10 min)</p>
           <ul>
             <li data-lang="feat_extra_8">Minuto extra: +$8 USD</li>
@@ -315,5 +325,46 @@
 
   <script src="modo.js"></script>
   <script src="language.js"></script> 
+  
+  <script>
+    function calcularPrecios() {
+        // 1. Obtener valores (minutos y segundos)
+        let mins = parseInt(document.getElementById('input-min').value) || 0;
+        let secs = parseInt(document.getElementById('input-sec').value) || 0;
+
+        // Duración total en minutos con decimales
+        let totalDuration = mins + (secs / 60);
+
+        // 2. Configuración de precios (Base y Costo Extra)
+        // Precio Base cubre hasta 10 min.
+        const plans = [
+            { id: 'price-basic', basePrice: 30, extraRate: 3 },
+            { id: 'price-standard', basePrice: 80, extraRate: 6 },
+            { id: 'price-advanced', basePrice: 100, extraRate: 8 }
+        ];
+
+        // 3. Calcular y actualizar
+        plans.forEach(plan => {
+            let finalPrice = plan.basePrice;
+
+            if (totalDuration > 10) {
+                // Redondear hacia arriba el exceso (ej: 10 min 1 seg = 11 min para cobro)
+                let extraMinutes = Math.ceil(totalDuration - 10);
+                finalPrice += (extraMinutes * plan.extraRate);
+            }
+
+            // Actualizar texto y animación
+            const priceElement = document.getElementById(plan.id);
+            if (priceElement.innerText !== `$${finalPrice} USD`) {
+                priceElement.innerText = `$${finalPrice} USD`;
+                
+                // Reiniciar animación css
+                priceElement.classList.remove('price-update-anim');
+                void priceElement.offsetWidth; // truco para reiniciar animacion
+                priceElement.classList.add('price-update-anim');
+            }
+        });
+    }
+  </script>
 </body>
 </html>
