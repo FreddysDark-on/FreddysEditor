@@ -10,17 +10,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=7">
 
   <style>
     /* Estilo del video de presentación */
     .video-presentation-box {
       flex: 1;
-      max-width: 550px; /* Un poco más grande estilo cine */
+      max-width: 550px;
       min-width: 320px;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 0 30px rgba(104, 104, 255, 0.15); /* Resplandor sutil */
+      box-shadow: 0 0 30px rgba(104, 104, 255, 0.15);
       border: 2px solid #6868ff;
       aspect-ratio: 16/9;
       background: #000;
@@ -140,16 +140,37 @@
   <div class="creators-section">
     <h2 data-lang="creators_title">Trabajé para estos creadores</h2>
     <div class="creators-container">
+      
       <a href="https://www.youtube.com/@AleWang" target="_blank" class="creator-box">
-        <img src="assets/imagenes/aleWang.webp" alt="Ale Wang">
+        <img 
+          src="https://unavatar.io/youtube/AleWang" 
+          alt="Ale Wang"
+          onerror="this.onerror=null; this.src='assets/imagenes/aleWang.webp';"
+        >
         <span class="creator-name">Ale Wang</span>
-        <span class="creator-subs">2.2M subs</span>
+        <span class="creator-subs" id="sub-count-alewang">2.37M subs</span>
       </a>
+
       <a href="https://www.youtube.com/@alewangblox" target="_blank" class="creator-box">
-        <img src="assets/imagenes/aleWangBlox.webp" alt="AleWangBlox">
+        <img 
+          src="https://unavatar.io/youtube/alewangblox" 
+          alt="AleWangBlox"
+          onerror="this.onerror=null; this.src='assets/imagenes/aleWangBlox.webp';"
+        >
         <span class="creator-name">AleWangBlox</span>
-        <span class="creator-subs">169k subs</span>
+        <span class="creator-subs" id="sub-count-alewangblox">188K subs</span>
       </a>
+
+      <a href="https://www.youtube.com/@orzatech" target="_blank" class="creator-box">
+        <img 
+          src="https://unavatar.io/youtube/orzatech" 
+          alt="OrzaTech" 
+          onerror="this.onerror=null; this.src='assets/imagenes/default.png';"
+        >
+        <span class="creator-name">OrzaTech</span>
+        <span class="creator-subs" id="sub-count-orzatech">1.64K subs</span>
+      </a>
+
     </div>
   </div>
 
@@ -159,11 +180,18 @@
       <h3 class="category-title" data-lang="cat_horiz_title">☆ VIDEOS HORIZONTALES ☆</h3>
       <p class="category-description" data-lang="cat_horiz_desc">Videos horizontales para tus Gameplays, Podcasts, Vlogs, etc</p>
 
+      <div class="calc-wrapper">
+        <div class="calc-box">
+          <label for="duration-input" data-lang="calc_label">Duración (min):</label>
+          <input type="number" id="duration-input" value="10" min="1" oninput="calcularPrecios()">
+        </div>
+        <p class="calc-info" data-lang="calc_info">*El precio base cubre hasta 10 minutos.</p>
+      </div>
       <div class="pricing-container">
         
         <div class="pricing-box">
           <h4 data-lang="plan_basic">Plan Básico</h4>
-          <p class="price">$30 USD</p>
+          <p class="price" id="price-basic">$30 USD</p>
           <p class="price-detail" data-lang="price_base_10">Base (Hasta 10 min)</p>
           <ul>
             <li data-lang="feat_extra_3">Minuto extra: +$3 USD</li>
@@ -182,7 +210,7 @@
 
         <div class="pricing-box">
           <h4 data-lang="plan_standard">Plan Estándar</h4>
-          <p class="price">$80 USD</p>
+          <p class="price" id="price-standard">$80 USD</p>
           <p class="price-detail" data-lang="price_base_10">Base (Hasta 10 min)</p>
           <ul>
             <li data-lang="feat_extra_6">Minuto extra: +$6 USD</li>
@@ -200,7 +228,7 @@
         <div class="pricing-box featured">
           <div class="featured-badge" data-lang="badge_rec">RECOMENDADO</div>
           <h4 data-lang="plan_advanced">Plan Avanzado</h4>
-          <p class="price">$100 USD</p>
+          <p class="price" id="price-advanced">$100 USD</p>
           <p class="price-detail" data-lang="price_base_10">Base (Hasta 10 min)</p>
           <ul>
             <li data-lang="feat_extra_8">Minuto extra: +$8 USD</li>
@@ -313,7 +341,39 @@
     </div>
   </div>
 
+  <script>
+    const channels = [
+      { id: 'sub-count-alewang', channelId: 'UCzdtcKojZj5nMzqwj5qfEvg' },
+      { id: 'sub-count-alewangblox', channelId: 'UCpVm7bg6pXKo1Pr6k5kxG9A' },
+      { id: 'sub-count-orzatech', channelId: 'UC8JScxl9wRRaqXWlInvR4Q' }
+    ];
+
+    async function updateSubs() {
+      channels.forEach(async (channel) => {
+        try {
+          const response = await fetch(`https://api.estela.co/youtube/channel/${channel.channelId}`);
+          const data = await response.json();
+          if (data && data.est_sub) {
+            let formatted = formatSubs(data.est_sub);
+            document.getElementById(channel.id).innerText = formatted + " subs";
+          }
+        } catch (error) {
+          console.log("No se pudo actualizar subs para " + channel.id);
+        }
+      });
+    }
+
+    function formatSubs(num) {
+      if (num >= 1000000) return (num / 1000000).toFixed(2) + 'M';
+      if (num >= 1000) return (num / 1000).toFixed(0) + 'K';
+      return num;
+    }
+
+    document.addEventListener('DOMContentLoaded', updateSubs);
+  </script>
+
   <script src="modo.js"></script>
   <script src="language.js"></script> 
+  <script src="calculadora.js"></script> 
 </body>
 </html>
