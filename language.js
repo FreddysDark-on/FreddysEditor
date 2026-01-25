@@ -19,6 +19,10 @@ const translations = {
     portfolio_text: "En mi <a href='https://ytjobs.co/talent/vitrine/437788' target='_blank' style='color: #6868ff; font-weight: bold;'>portafolio</a> puedes verlos todos por si te da curiosidad ;)",
     creators_title: "Trabajé para estos creadores",
     
+    // CALCULADORA (Sin emojis)
+    calc_label: "Duración (min):",
+    calc_info: "*El precio base cubre hasta 10 minutos.",
+
     // Precios
     cat_horiz_title: "☆ VIDEOS HORIZONTALES ☆",
     cat_horiz_desc: "Videos horizontales para tus Gameplays, Podcasts, Vlogs, etc",
@@ -112,6 +116,10 @@ const translations = {
     portfolio_text: "You can see them all in my <a href='https://ytjobs.co/talent/vitrine/437788' target='_blank' style='color: #6868ff; font-weight: bold;'>portfolio</a> if you're curious ;)",
     creators_title: "Worked for these creators",
     
+    // CALCULADORA
+    calc_label: "Duration (min):",
+    calc_info: "*Base price covers up to 10 minutes.",
+
     // Prices
     cat_horiz_title: "☆ HORIZONTAL VIDEOS ☆",
     cat_horiz_desc: "Horizontal videos for your Gameplays, Podcasts, Vlogs, etc",
