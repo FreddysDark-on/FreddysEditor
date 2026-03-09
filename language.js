@@ -29,7 +29,7 @@ const translations = {
     plan_basic: "Plan Básico",
     price_base_10: "Base (Hasta 10 min)",
     feat_raw_120: "Hasta 120 min de material bruto",
-    feat_extra_3: "Minuto extra: +$3 USD",
+    feat_extra_3: "Minuto extra: +$1 USD",
     feat_trans_basic: "Transiciones básicas",
     feat_zoom: "Zooms",
     feat_subs: "Subtítulos",
@@ -126,7 +126,7 @@ const translations = {
     plan_basic: "Basic Plan",
     price_base_10: "Base (Up to 10 min)",
     feat_raw_120: "Up to 120 min raw footage",
-    feat_extra_3: "Extra minute: +$3 USD",
+    feat_extra_3: "Extra minute: +$1 USD",
     feat_trans_basic: "Basic transitions",
     feat_zoom: "Zooms",
     feat_subs: "Subtitles",
@@ -225,3 +225,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('preferredLanguage') || 'en';
   setLanguage(savedLang);
 });
+
