@@ -1,37 +1,34 @@
-// Lógica de la calculadora de precios
 function calcularPrecios() {
-    // 1. Obtener los minutos que puso el usuario
-    let minutes = parseInt(document.getElementById('duration-input').value);
+    const durationInput = document.getElementById('duration-input');
+    const duration = parseFloat(durationInput.value) || 0;
 
-    // Si el campo está vacío o es menor a 1, asumimos 1 minuto
-    if (isNaN(minutes) || minutes < 1) minutes = 1;
+    // --- CONFIGURACIÓN DE PRECIOS POR MINUTO ---
+    // Dividimos el precio base original (30 y 80) por los 10 minutos originales
+    const precioMinutoBasico = 3; 
+    const precioMinutoEstandar = 8;
 
-    // 2. Definir los precios Base y el costo por Minuto Extra
-    // Estructura: [PrecioBase, CostoExtra]
-    const plans = {
-        'price-basic':    { base: 30,  extra: 3 },
-        'price-standard': { base: 80,  extra: 6 },
-        'price-advanced': { base: 100, extra: 8 }
-    };
+    // --- CÁLCULO ---
+    let totalBasico = duration * precioMinutoBasico;
+    let totalEstandar = duration * precioMinutoEstandar;
 
-    // 3. Calcular la diferencia (Solo cobramos extra si pasa de 10 min)
-    let extraMinutes = 0;
-    if (minutes > 10) {
-        extraMinutes = minutes - 10;
+    // --- OPCIONAL: Precio mínimo (para que no te pidan un video de 1 min por 3 USD) ---
+    // Si querés un mínimo, por ejemplo 15 USD, descomentá las siguientes dos líneas:
+    // if (totalBasico < 15) totalBasico = 15;
+    // if (totalEstandar < 40) totalEstandar = 40;
+
+    // --- ACTUALIZAR EL HTML ---
+    const displayBasico = document.getElementById('price-basic');
+    const displayEstandar = document.getElementById('price-standard');
+
+    if (displayBasico) {
+        displayBasico.innerText = `$${totalBasico.toFixed(0)} USD`;
+        displayBasico.classList.add('price-anim'); // Animación de pop
+        setTimeout(() => displayBasico.classList.remove('price-anim'), 300);
     }
 
-    // 4. Actualizar cada tarjeta
-    for (let [id, plan] of Object.entries(plans)) {
-        let finalPrice = plan.base + (extraMinutes * plan.extra);
-        
-        let priceElement = document.getElementById(id);
-        
-        // Actualizar el texto
-        priceElement.innerText = `$${finalPrice} USD`;
-        
-        // Efecto visual de "Pop" para que se note el cambio
-        priceElement.classList.remove('price-anim');
-        void priceElement.offsetWidth; // Truco para reiniciar animación CSS
-        priceElement.classList.add('price-anim');
+    if (displayEstandar) {
+        displayEstandar.innerText = `$${totalEstandar.toFixed(0)} USD`;
+        displayEstandar.classList.add('price-anim');
+        setTimeout(() => displayEstandar.classList.remove('price-anim'), 300);
     }
 }
