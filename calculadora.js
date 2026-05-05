@@ -5,7 +5,7 @@ function calcularPrecios() {
     // --- CONFIGURACIÓN DE PRECIOS POR MINUTO ---
     // Dividimos el precio base original (30 y 80) por los 10 minutos originales
     const precioMinutoBasico = 3; 
-    const precioMinutoEstandar = 8;
+    const precioMinutoEstandar = 6;
 
     // --- CÁLCULO ---
     let totalBasico = duration * precioMinutoBasico;
