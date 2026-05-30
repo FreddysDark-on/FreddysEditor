@@ -1,89 +1,63 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment Methods - FreddysDarkON</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="assets/imagenes/favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="style.css?v=5">
-  <link rel="stylesheet" href="payments.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments - Video Editor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="payments.css">
 </head>
 <body>
 
-  <div class="navbar">
-    <div class="nav-links">
-      <a href="index.html" data-lang="nav_home">INICIO</a>
-      <a href="https://ytjobs.co/talent/vitrine/437788" target="_blank" data-lang="nav_portfolio">PORTAFOLIO</a>
-      <a href="index.html#prices" data-lang="nav_prices">PRECIOS</a>
-      <a href="contacts.html" data-lang="nav_contact">CONTACTO</a>
-      <a href="payments.html" data-lang="nav_payments">PAGOS</a>
-    </div>
+    <header class="topbar">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="https://ytjobs.co/talent/vitrine/437788" target="_blank">Portfolio</a>
+            <a href="contact.html">Contact</a>
+            <a href="payments.html">Payments</a>
+        </nav>
+    </header>
 
-    <div class="nav-controls">
-      <div class="lang-switch">
-        <button id="btn-es" onclick="setLanguage('es')">ESP</button>
-        <button id="btn-en" onclick="setLanguage('en')">ENG</button>
-      </div>
-      <button id="theme-toggle" class="theme-button">
-        <img id="theme-icon" src="assets/hud/modeOff.png" alt="Cambiar tema">
-      </button>
-    </div>
-  </div>
+    <main class="payments-page">
+        <div class="diagonal-bg-payments"></div>
 
-  <div class="payment-section">
-    <h1 data-lang="pay_title">Métodos de Pago</h1>
-    <p class="payment-subtitle" data-lang="pay_subtitle">Elige la forma de pago que más te convenga</p>
+        <div class="payments-container">
+            <h1 class="payments-title fade-in-up">Payment Methods</h1>
+            <p class="payments-subtitle fade-in-up delay-1"></p>
+            
+            <div class="payments-grid fade-in-up delay-2">
+                
+                <div class="payment-card promo-card">
+                    <span class="promo-badge">discount</span>
+                    <img src="icons/mercadolibre.webp" alt="Mercado Pago" class="payment-icon">
+                    <h3 class="payment-name">Mercado Pago</h3>
+                    <p class="payment-discount">10% discount for Argentines</p>
+                </div>
 
-    <div class="payment-grid">
+                <div class="payment-card">
+                    <img src="icons/paypal.webp" alt="PayPal" class="payment-icon">
+                    <h3 class="payment-name">PayPal</h3>
+                </div>
 
-      <div class="featured-card">
-        <div class="featured-badge" data-lang="badge_rec">RECOMENDADO</div>
-        <div class="featured-logo">
-          <img src="assets/imagenes/mercadolibre.webp" alt="Mercado Pago">
+                <div class="payment-card">
+                    <img src="icons/payooner.webp" alt="Payoneer" class="payment-icon">
+                    <h3 class="payment-name">Payoneer</h3>
+                </div>
+
+                <div class="payment-card">
+                    <img src="icons/binance.webp" alt="Binance" class="payment-icon">
+                    <h3 class="payment-name">Binance Pay</h3>
+                </div>
+
+                <div class="payment-card">
+                    <img src="icons/dolarapp.png" alt="DolarApp" class="payment-icon">
+                    <h3 class="payment-name">DolarApp</h3>
+                </div>
+
+            </div>
         </div>
-        <h2>Mercado Pago</h2>
-        <p class="featured-description" data-lang="pay_mp_desc">Ideal para clientes de Argentina. Transferencias instantáneas, sin comisiones y 100% seguras.</p>
-        <div class="discount-badge" data-lang="pay_mp_disc">¡10% DE DESCUENTO para argentinos!</div>
-      </div>
+    </main>
 
-      <div class="other-methods">
-
-        <div class="method-card">
-          <div class="method-logo"><img src="assets/imagenes/paypal.webp" alt="PayPal"></div>
-          <h3>PayPal</h3>
-          <p class="method-description" data-lang="pay_pp_desc">Pago internacional seguro</p>
-          <span class="tax-info" data-lang="pay_tax">Impuestos incluidos</span>
-        </div>
-
-        <div class="method-card">
-          <div class="method-logo"><img src="assets/imagenes/binance.webp" alt="Binance"></div>
-          <h3>Binance</h3>
-          <p class="method-description" data-lang="pay_bin_desc">Pagos con criptomonedas</p>
-        </div>
-
-        <div class="method-card">
-          <div class="method-logo"><img src="assets/imagenes/payooner.webp" alt="Payoneer"></div>
-          <h3>Payoneer</h3>
-          <p class="method-description" data-lang="pay_pay_desc">Transferencias internacionales</p>
-          <span class="tax-info" data-lang="pay_tax">Impuestos incluidos</span>
-        </div>
-
-        <div class="method-card">
-          <div class="method-logo"><img src="assets/imagenes/dolarapp.png" alt="DolarApp"></div>
-          <h3>DolarApp</h3>
-          <p class="method-description" data-lang="pay_dol_desc">Pagos directos desde tu cuenta digital</p>
-        </div>
-
-      </div>
-    </div>
-
-    <a href="index.html" class="back-button" data-lang="btn_back">← Volver al Inicio</a>
-  </div>
-
-  <script src="modo.js"></script>
-  <script src="language.js"></script>
 </body>
 </html>
