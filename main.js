@@ -72,9 +72,6 @@ const misVideos = {
     }
 };
 
-// =======================================================
-// --- 2. BASE DE DATOS DE PRECIOS Y VENTAJAS ---
-// =======================================================
 const infoPrecios = {
     horizontal: {
         basic: {
@@ -123,22 +120,19 @@ const infoPrecios = {
                 "Dynamic Music", 
                 "2D + 3D Motion Graphics", 
                 "Graphics", 
-                "1-4 days delivery", 
+                "1-6 days delivery", 
                 "Unlimited Revisions"
             ]
         }
     }
 };
 
-// ESTADO GLOBAL
+
 let planActual = 'basic'; 
 let formatoActual = 'horizontal';
 let categoriaActual = 'gameplay';
 let renderId = 0;
 
-// =======================================================
-// --- 3. FUNCIONES DE EXTRACCIÓN (YOUTUBE/TIKTOK) ---
-// =======================================================
 function getYoutubeId(url) {
     if (!url) return null;
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
@@ -158,13 +152,10 @@ async function getTikTokThumbnail(url) {
     }
 }
 
-// =======================================================
-// --- 4. RENDERIZADO VISUAL ---
-// =======================================================
-// 🛠️ RENDERIZADO OPTIMIZADO (Con parche anti-condición de carrera)
+
 async function renderVideos() {
-    renderId++; // Incrementamos el ID global en cada clic
-    const idActual = renderId; // Capturamos el ID de este clic específico de forma local
+    renderId++; 
+    const idActual = renderId;
     
     const grid = document.getElementById('video-grid');
     grid.innerHTML = '<p style="color:#6B7280; grid-column: 1 / -1;">Loading...</p>'; 
@@ -173,7 +164,6 @@ async function renderVideos() {
     const linksValidos = linksCrudos.filter(link => link !== "");
 
     if (linksValidos.length === 0) {
-        // 🔥 VERIFICACIÓN: Si el usuario ya clickeó otra cosa mientras filtrábamos, abortamos
         if (idActual !== renderId) return;
         
         grid.innerHTML = '<p style="color:#6B7280; grid-column: 1 / -1; font-style: italic;">No examples available at the moment :(</p>';
@@ -201,11 +191,8 @@ async function renderVideos() {
         return `<a href="${link}" target="_blank" class="video-box-link">${interiorHTML}</a>`;
     });
 
-    // Esperamos las respuestas asíncronas de las APIs externas
     const elementosHtmlGenerados = await Promise.all(htmlPromesas);
 
-    // 🔥 LA MAGIA: Si idActual no coincide con renderId, significa que el usuario
-    // hizo un clic nuevo mientras esperábamos. Abortamos esta ejecución vieja para que no rompa el diseño.
     if (idActual !== renderId) {
         return; 
     }
@@ -213,15 +200,13 @@ async function renderVideos() {
     grid.innerHTML = elementosHtmlGenerados.join('');
 }
 
-// 🔥 NUEVA FUNCIÓN: Actualiza el precio y las ventajas dinámicamente
 function renderPrecios() {
     const datosContrato = infoPrecios[formatoActual][planActual];
     
-    // Inyecta precio y tarifa
     document.getElementById('pricing-price').innerHTML = datosContrato.precio;
     document.getElementById('pricing-rate').innerHTML = datosContrato.tarifa;
     
-    // Limpia las ventajas anteriores e inyecta las nuevas
+
     const listaVentajas = document.getElementById('pricing-features');
     listaVentajas.innerHTML = '';
     
@@ -231,7 +216,6 @@ function renderPrecios() {
         listaVentajas.appendChild(li);
     });
 
-    // Cambia el estilo de los "tics" (puntos blancos vs tics celestes)
     if (planActual === 'standard') {
         listaVentajas.classList.add('check-list');
     } else {
@@ -239,9 +223,6 @@ function renderPrecios() {
     }
 }
 
-// =======================================================
-// --- 5. EVENTOS DE CLICK ---
-// =======================================================
 function selectFormat(formato, element) {
     document.querySelectorAll('.format-tab').forEach(tab => tab.classList.remove('active'));
     element.classList.add('active');
