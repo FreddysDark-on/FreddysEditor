@@ -97,7 +97,7 @@ const infoPrecios = {
                 "Better Sound Effects", 
                 "2D + 3D Basic Motion Graphics", 
                 "Graphics", 
-                "1-4 days delivery", 
+                "1-6 days delivery", 
                 "Unlimited Revisions"
             ]
         }
