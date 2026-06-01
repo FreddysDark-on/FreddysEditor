@@ -188,7 +188,7 @@ async function renderVideos() {
             }
         }
         
-        return `<a href="${link}" target="_blank" class="video-box-link">${interiorHTML}</a>`;
+        return `<a href="javascript:void(0)" onclick="openModal('${link}')" class="video-box-link">${interiorHTML}</a>`;
     });
 
     const elementosHtmlGenerados = await Promise.all(htmlPromesas);
@@ -269,3 +269,65 @@ window.onload = () => {
     renderVideos();
     renderPrecios();
 };
+
+// =======================================================
+// --- 6. LÓGICA DEL REPRODUCTOR MODAL ---
+// =======================================================
+
+function openModal(url) {
+    const modal = document.getElementById('video-modal');
+    const modalBox = document.getElementById('modal-box');
+    const iframeContainer = document.getElementById('modal-iframe-container');
+
+    let embedUrl = '';
+    let isVertical = false;
+
+    // 1. Procesar link de YouTube
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+        const ytId = getYoutubeId(url);
+        // El parámetro autoplay=1 hace que el video inicie solo al abrir el modal
+        embedUrl = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
+        
+        // Si es un short o si estamos en la sección vertical, activamos el modo celular
+        if (url.includes('/shorts/') || formatoActual === 'vertical') {
+            isVertical = true;
+        }
+    } 
+    // 2. Procesar link de TikTok
+    else if (url.includes('tiktok.com')) {
+        // Extraemos el ID del video de TikTok usando Expresiones Regulares
+        const regex = /video\/(\d+)/;
+        const match = url.match(regex);
+        if (match && match[1]) {
+            // URL especial de TikTok para incrustar reproductores
+            embedUrl = `https://www.tiktok.com/embed/v2/${match[1]}`;
+            isVertical = true; // TikTok siempre es vertical
+        }
+    }
+
+    // 3. Ajustar el diseño de la caja (Horizontal o Vertical)
+    if (isVertical) {
+        modalBox.classList.add('vertical-mode');
+    } else {
+        modalBox.classList.remove('vertical-mode');
+    }
+
+    // 4. Inyectar el Iframe (Reproductor)
+    iframeContainer.innerHTML = `<iframe src="${embedUrl}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+
+    // 5. Mostrar el Modal con animación
+    modal.classList.add('active');
+}
+
+function closeModal() {
+    const modal = document.getElementById('video-modal');
+    const iframeContainer = document.getElementById('modal-iframe-container');
+
+    // Ocultar modal
+    modal.classList.remove('active');
+    
+    // CLAVE: Borramos el iframe para que el video deje de reproducirse y consumir memoria
+    setTimeout(() => {
+        iframeContainer.innerHTML = ''; 
+    }, 300); // Esperamos 300ms para que termine la animación de opacidad antes de borrarlo
+}

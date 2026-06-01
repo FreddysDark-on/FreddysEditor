@@ -145,5 +145,13 @@
 
     <!-- Enlace al archivo JavaScript -->
     <script src="main.js"></script>
+    <div id="video-modal" class="modal-overlay" onclick="closeModal()">
+        <div class="modal-content" id="modal-box" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeModal()">✖</button>
+            <div id="modal-iframe-container">
+                <!-- El JS meterá el video de YT o TikTok aquí adentro -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>

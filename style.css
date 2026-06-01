@@ -334,24 +334,101 @@ body {
     .portfolio-left, .portfolio-right { width: 100%; }
 }
 
+/* =======================================================
+   --- 9. MODAL REPRODUCTOR DE VIDEO ---
+   ======================================================= */
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(17, 24, 39, 0.9);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+    background: #000;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 1000px;
+    aspect-ratio: 16 / 9; 
+    transition: all 0.3s ease;
+}
+
+.modal-content.vertical-mode {
+    max-width: 450px;
+    aspect-ratio: 9 / 16;
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: -10px;
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 32px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+    color: #EF4444;
+}
+
+/* 🔥 SOLUCIÓN AQUÍ: Obligamos al contenedor a ocupar el 100% de la caja negra */
+#modal-iframe-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden; /* Corta las esquinas cuadradas del video de YT */
+}
+
+#modal-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 @media (max-width: 768px) {
     .topbar nav { gap: 15px; }
     .topbar nav a { font-size: 14px; }
-    .figma-canvas { height: 100vh; min-height: 800px; }
+    
+    /* Le damos un poco más de altura mínima al fondo para que nada se aplaste */
+    .figma-canvas { height: 100vh; min-height: 850px; }
     .diagonal-bg { width: 100%; height: 55%; top: auto; bottom: 0; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%); }
 
-    .text-box { top: 5%; left: 5%; width: 90%; transform: none; text-align: center; }
+    /* Bajamos el texto y le ponemos z-index para que quede siempre al frente */
+    .text-box { top: 120px; left: 5%; width: 90%; transform: none; text-align: center; z-index: 10; }
     .text-box h1 { font-size: 40px; line-height: 48px; }
     .watch-video-btn { margin: 0 auto; }
 
-    .character { left: 50%; right: auto; top: auto; bottom: 15%; transform: translateX(-50%); width: 50%; max-width: 250px; }
-    .videos-pile { left: 50%; right: auto; top: auto; bottom: -5%; transform: translateX(-50%); width: 110%; max-width: 450px; }
-    .pr { left: auto; right: 5%; top: auto; bottom: 35%; width: 22%; transform: none; }
-    .ae { left: auto; right: 15%; top: auto; bottom: 65%; width: 18%; transform: none; }
-    .ps { left: 15%; right: auto; top: auto; bottom: 45%; width: 12%; transform: none; }
-    .blender { left: 20%; right: auto; top: auto; bottom: 65%; width: 15%; transform: none; }
+    /* Bajamos el personaje y los videos un poco más */
+    .character { left: 10%; right: auto; top: 70%; bottom: 12%; transform: translateX(-50%); width: 55%; max-width: 250px; }
+    .videos-pile { left: 30%; right: auto; top: auto; bottom: -2%; transform: translateX(-50%); width: 80%; max-width: 450px; }
+    
+    /* Acomodamos los íconos alrededor de la cabeza del personaje para que no tapen el texto */
+    .pr { left: auto; right: 10%; top: auto; bottom: 25%; width: 18%; transform: none; }
+    .ae { left: auto; right: 15%; top: auto; bottom: 40%; width: 15%; transform: none; }
+    .ps { left: 45%; right: auto; top: auto; bottom: 30%; width: 12%; transform: none; }
+    .blender { left: 30%; right: auto; top: auto; bottom: 35%; width: 15%; transform: none; }
 
-    /* Ajuste para clientes en Celular */
+    /* Ajuste para clientes en Celular (Mantenemos lo que ya tenías bien) */
     .clients-title { font-size: 42px; text-align: center; display: block; margin: 0 auto 30px auto; width: fit-content; }
     .clients-grid { gap: 25px; }
 
