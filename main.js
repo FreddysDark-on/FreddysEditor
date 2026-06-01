@@ -75,8 +75,8 @@ const misVideos = {
 const infoPrecios = {
     horizontal: {
         basic: {
-            precio: "20$",
-            tarifa: "2 x min",
+            precio: "",
+            tarifa: "",
             ventajas: [
                 "Basic transitions", 
                 "Zooms", 
@@ -87,8 +87,8 @@ const infoPrecios = {
             ]
         },
         standard: {
-            precio: "50$",
-            tarifa: "5 x min",
+            precio: "",
+            tarifa: "",
             ventajas: [
                 "Everything above", 
                 "Better Sound Effects", 
@@ -101,7 +101,7 @@ const infoPrecios = {
     },
     vertical: {
         basic: {
-            precio: "4$",
+            precio: "",
             tarifa: "",
             ventajas: [
                 "Basic transitions", 
@@ -113,7 +113,7 @@ const infoPrecios = {
             ]
         },
         standard: {
-            precio: "10$",
+            precio: "",
             tarifa: "",
             ventajas: [
                 "Everything above", 
