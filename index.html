@@ -11,7 +11,9 @@
 <body>
 
     <!-- BARRA DE NAVEGACIÓN -->
-    <header class="topbar">
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <header class="topbar" id="topbar">
         <nav>
             <a href="index.html">Home</a>
             <a href="https://ytjobs.co/talent/vitrine/437788" target="_blank">Portfolio</a>
@@ -23,9 +25,11 @@
     <!-- SECCIÓN HERO -->
     <main class="figma-canvas">
         <div class="diagonal-bg"></div>
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
         
         <div class="text-box">
-            <h1 class="fade-in-up">Video Editor</h1>
+            <h1 class="fade-in-up"><span class="gradient-text">Video</span> Editor</h1>
             <p class="fade-in-up delay-1">
                 I will edit any kind of videos you need, whether in horizontal or vertical format (gameplays, vlogs, podcasts, reviews, tutorials, reels, shorts, TikToks, and much more) with your preferred duration and for any social media.
             </p>
@@ -45,41 +49,63 @@
         <img src="icons/ale1.svg" alt="Trollface Character" class="figma-asset character fade-in-right delay-3">
     </main>
 
+    <!-- SECCIÓN ESTADÍSTICAS (datos de YT Jobs, ver data/ytjobs.json) -->
+    <section class="stats-section" id="stats">
+        <div class="stats-glow stats-glow-1"></div>
+        <div class="stats-glow stats-glow-2"></div>
+        <div class="stats-container">
+            <h2 class="section-title light reveal">My numbers</h2>
+            <p class="stats-subtitle reveal">Real results from the videos I've edited, tracked live on YT Jobs.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card reveal">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                    <span class="stat-number" data-stat="views">0</span>
+                    <span class="stat-label">Total views</span>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="15" height="14" rx="2"/><path d="M17 10l5-3v10l-5-3z"/></svg></div>
+                    <span class="stat-number" data-stat="videos">0</span>
+                    <span class="stat-label">Videos edited</span>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M1 21c0-4 3.6-7 8-7s8 3 8 7"/><path d="M17 4a4 4 0 0 1 0 8M23 21c0-3-2-5.5-5-6.5"/></svg></div>
+                    <span class="stat-number" data-stat="clients">0</span>
+                    <span class="stat-label">Clients</span>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M7 22V11M2 13v7a2 2 0 0 0 2 2h13.3a2 2 0 0 0 2-1.7l1.4-8A2 2 0 0 0 18.7 10H14V5a3 3 0 0 0-3-3l-4 9"/></svg></div>
+                    <span class="stat-number" data-stat="likes">0</span>
+                    <span class="stat-label">Likes</span>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg></div>
+                    <span class="stat-number" data-stat="comments">0</span>
+                    <span class="stat-label">Comments</span>
+                </div>
+                <div class="stat-card reveal">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.3 7 1-5 4.8 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.8 7-1z"/></svg></div>
+                    <span class="stat-number" data-stat="clientSubscribers">0</span>
+                    <span class="stat-label">Combined client subs</span>
+                </div>
+            </div>
+
+            <a class="stats-source reveal" id="stats-source" href="https://ytjobs.co/talent/profile/437788" target="_blank">
+                <span class="live-dot"></span>
+                <span id="stats-updated">Live from YT Jobs</span>
+            </a>
+        </div>
+    </section>
+
     <!-- SECCIÓN MIS CLIENTES (Rectángulo azul) -->
     <section class="clients-section">
         <div class="clients-container">
             <div class="clients-title-wrapper">
-                <h2 class="clients-title">My clients</h2>
+                <h2 class="clients-title reveal">My clients</h2>
             </div>
-            
-            <div class="clients-grid">
-                <!-- Cliente 1 -->
-                <a href="https://www.youtube.com/@AleWang" target="_blank" class="client-card">
-                    <img src="icons/cliente1.webp" alt="Ale Wang" class="client-avatar">
-                    <h3 class="client-name">Ale Wang</h3>
-                    <p class="client-subs">2.57M Subs</p>
-                </a>
 
-                <!-- Cliente 2 -->
-                <a href="https://www.youtube.com/@alewangblox" target="_blank" class="client-card">
-                    <img src="icons/cliente2.webp" alt="AleWangBlox" class="client-avatar">
-                    <h3 class="client-name">AleWangBlox</h3>
-                    <p class="client-subs">208K Subs</p>
-                </a>
-
-                <!-- Cliente 3 -->
-                <a href="https://www.youtube.com/@FranAguirree" target="_blank" class="client-card">
-                    <img src="icons/cliente3.jpg" alt="FranAguirre" class="client-avatar">
-                    <h3 class="client-name">FranAguirre</h3>
-                    <p class="client-subs">72k Subs</p>
-                </a>
-
-                <!-- Cliente 4 -->
-                <a href="https://www.youtube.com/@orzatech" target="_blank" class="client-card">
-                    <img src="icons/cliente4.jpg" alt="Orzatech" class="client-avatar">
-                    <h3 class="client-name">Orzatech</h3>
-                    <p class="client-subs">2.32k Subs</p>
-                </a>
+            <div class="clients-grid" id="clients-grid">
+                <!-- JS inyecta los clientes de YT Jobs aquí -->
             </div>
         </div>
     </section>
@@ -90,7 +116,7 @@
             
             <!-- Izquierda: Filtros y Videos -->
             <div class="portfolio-left">
-                <div class="format-tabs">
+                <div class="format-tabs reveal">
                     <div class="format-tab active" onclick="selectFormat('horizontal', this)">
                         <h2>Horizontal</h2>
                         <div class="active-indicator"></div>
@@ -101,7 +127,7 @@
                     </div>
                 </div>
 
-                <div class="category-tabs">
+                <div class="category-tabs reveal">
                     <button class="cat-btn active" onclick="selectCategory('gameplay', this)">gameplay</button>
                     <button class="cat-btn" onclick="selectCategory('vlogs', this)">vlogs</button>
                     <button class="cat-btn" onclick="selectCategory('other', this)">other</button>
@@ -119,7 +145,7 @@
             <!-- Derecha: Tarjeta de Precios -->
             <div class="portfolio-right">
                 
-                <div class="pricing-wrapper">
+                <div class="pricing-wrapper reveal">
                     <div class="pricing-card-tabs">
                         <div class="card-tab active" id="tab-basic" onclick="switchPlan('basic')">> Basic</div>
                         <div class="card-tab inactive" id="tab-standard" onclick="switchPlan('standard')">Standard</div>
