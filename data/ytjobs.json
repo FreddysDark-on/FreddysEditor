@@ -1,0 +1,70 @@
+{
+  "updatedAt": "2026-10-22T03:16:01.999Z",
+  "source": "https://ytjobs.co/talent/profile/437788",
+  "stats": {
+    "views": 20063721,
+    "videos": 57,
+    "likes": 487400,
+    "comments": 13940,
+    "clients": 7,
+    "clientSubscribers": 4267400
+  },
+  "clients": [
+    {
+      "id": "4811",
+      "name": "Ale Wang",
+      "avatar": "https://storage.ytjobs.co/channel_thumbnails/IJItynLT8HQtDu9ATSSWLaA2wMSz7bIj7Yx3pOCn.jpg",
+      "subscribers": 3450000,
+      "link": "https://youtube.com/@alewang",
+      "verified": true
+    },
+    {
+      "id": "100181",
+      "name": "Kino Frizza",
+      "avatar": "https://storage.ytjobs.co/channel_thumbnails/5ULCPccZUH0EBy16dSnHQpmtSR3oB6waNbAqMhnW.jpg",
+      "subscribers": 553000,
+      "link": "https://youtube.com/@kinofrizza",
+      "verified": false
+    },
+    {
+      "id": "55860",
+      "name": "AleWangBlox",
+      "avatar": "https://storage.ytjobs.co/channel_thumbnails/uitSkK3mf6CYVj6eFzHo28xCIlxlBVq7qjhsPkaH.jpg",
+      "subscribers": 207000,
+      "link": null,
+      "verified": false
+    },
+    {
+      "id": "484136",
+      "name": "Franchi Bal",
+      "avatar": "https://storage.ytjobs.co/channel_thumbnails/qZNjGf74vwuoWUdDlsgpFwJZSCQuf0XyEiLNwBw2.jpg",
+      "subscribers": 33800,
+      "link": null,
+      "verified": false
+    },
+    {
+      "id": "347290",
+      "name": "Totisued",
+      "avatar": "https://storage.ytjobs.co/channel_thumbnails/guZatrT9EQZdobOZtVHnEDLgtlYTyLnl3oDiFTNT.jpg",
+      "subscribers": 20000,
+      "link": null,
+      "verified": false
+    },
+    {
+      "id": "407547",
+      "name": "Orza",
+      "avatar": "https://storage.ytjobs.co/channel_thumbnails/XsW1IjuDjUppZfd2ws7DZBomQBVXvpQvvspnaCSJ.jpg",
+      "subscribers": 2440,
+      "link": null,
+      "verified": false
+    },
+    {
+      "id": "461934",
+      "name": "Juanra Fumanal Emprendimiento",
+      "avatar": "https://storage.ytjobs.co/channel_thumbnails/SpeRrIsSRUg0wfxxfyjtUpgTwNd7FLRfRScKHUCZ.jpg",
+      "subscribers": 1160,
+      "link": null,
+      "verified": false
+    }
+  ]
+}
