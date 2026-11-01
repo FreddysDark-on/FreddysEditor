@@ -257,8 +257,7 @@ body {
     gap: 40px;
 }
 
-.portfolio-left { width: 58%; position: relative; }
-.portfolio-right { width: 38%; position: relative; padding-top: 50px; }
+.portfolio-left { width: 100%; position: relative; }
 
 /* Filtros */
 .format-tabs { display: flex; gap: 50px; margin-bottom: 20px; border-bottom: 2px solid #E5E7EB; }
@@ -273,8 +272,11 @@ body {
 .cat-btn.active { background: linear-gradient(90deg, #3B82F6 0%, #93C5FD 100%); color: #111827; }
 
 /* Grilla Videos */
-.video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-.video-box-link { display: block; background-color: #E5E7EB; border-radius: 16px; aspect-ratio: 16 / 9; width: 100%; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; overflow: hidden; position: relative; }
+.video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px; }
+.video-box-link { display: flex; align-items: center; justify-content: center; color: #6B7280; font-weight: 600; background-color: #E5E7EB; border-radius: 16px; aspect-ratio: 16 / 9; width: 100%; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; overflow: hidden; position: relative; }
+/* Vertical: tarjetas 9:16 para que TikToks y Shorts se vean enteros */
+.video-grid.vertical-grid { grid-template-columns: repeat(4, 1fr); }
+.video-grid.vertical-grid .video-box-link { aspect-ratio: 9 / 16; }
 .video-box-link:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 .yt-thumbnail { width: 100%; height: 100%; object-fit: cover; }
 .more-videos { font-size: 14px; color: #6B7280; }
@@ -282,29 +284,6 @@ body {
 
 .drawing-bottom-left { position: absolute; bottom: -40px; left: -40px; width: 100px; z-index: 0; }
 .drawing-top-right { position: absolute; top: 0; right: -20px; width: 120px; z-index: 0; }
-
-/* Tarjeta Precios */
-.pricing-wrapper { position: relative; z-index: 2; margin-top: 45px; }
-.pricing-card-tabs { position: absolute; top: -45px; left: 0; display: flex; align-items: flex-end; height: 45px; }
-.card-tab { padding: 0 24px; font-size: 20px; font-weight: 600; cursor: pointer; border-top-left-radius: 12px; border-top-right-radius: 12px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-.card-tab.active { background-color: #9333EA; height: 45px; z-index: 2; color: white; }
-.card-tab.inactive { background-color: #7E22CE; height: 38px; z-index: 1; color: rgba(255, 255, 255, 0.7); }
-
-.pricing-card { background-color: #9333EA; border-radius: 16px; border-top-left-radius: 0; color: white; position: relative; z-index: 2; box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3); }
-.pricing-card.standard-active { border-top-left-radius: 16px; }
-
-.hidden-plan { display: none; }
-.active-plan { display: block; }
-.pricing-content { padding: 40px 30px; }
-.pricing-content h3 { font-size: 64px; font-weight: 800; line-height: 1; }
-.pricing-content .rate { font-size: 24px; margin-bottom: 20px; }
-
-.features-list { list-style-type: none; margin-bottom: 30px; }
-.features-list li { font-size: 16px; margin-bottom: 8px; position: relative; padding-left: 20px; }
-.features-list li::before { content: "•"; position: absolute; left: 0; color: white; }
-.check-list li::before { content: "✓"; color: #38BDF8; font-weight: bold; }
-.contact-btn { width: 100%; padding: 12px 0; background-color: #E5E7EB; color: #111827; border: none; border-radius: 25px; font-size: 18px; font-weight: 700; cursor: pointer; transition: background-color 0.3s; }
-.contact-btn:hover { background-color: #FFFFFF; }
 
 /* =======================================================
    --- 8. REGLAS RESPONSIVAS ---
@@ -324,8 +303,8 @@ body {
     /* Ajuste para clientes en Tablet */
     .client-avatar { width: 120px; height: 120px; }
     
-    .portfolio-container { flex-direction: column; }
-    .portfolio-left, .portfolio-right { width: 100%; }
+    .video-grid { grid-template-columns: 1fr 1fr; }
+    .video-grid.vertical-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* =======================================================
@@ -428,6 +407,7 @@ body {
 
     .format-tabs { flex-direction: column; gap: 15px; }
     .video-grid { grid-template-columns: 1fr; }
+    .video-grid.vertical-grid { grid-template-columns: 1fr 1fr; }
 }
 
 /* =======================================================
@@ -742,30 +722,6 @@ body {
     transition: all 0.3s ease;
 }
 .video-box-link:hover::after { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-
-/* Tarjeta de precios */
-.pricing-card { transition: transform 0.35s ease, box-shadow 0.35s ease; }
-.pricing-wrapper:hover .pricing-card { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(147, 51, 234, 0.45); }
-.features-list li { transition: padding-left 0.25s ease; }
-.features-list li:hover { padding-left: 26px; }
-
-.contact-btn { position: relative; overflow: hidden; transition: background-color 0.3s, transform 0.2s; }
-.contact-btn:hover { transform: scale(1.03); }
-.contact-btn::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(147, 51, 234, 0.25), transparent);
-    transform: skewX(-20deg);
-    animation: btnShine 3s ease-in-out infinite;
-}
-@keyframes btnShine {
-    0%, 60% { left: -75%; }
-    100% { left: 130%; }
-}
 
 .modal-content { animation: modalIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
 @keyframes modalIn {

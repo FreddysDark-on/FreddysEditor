@@ -114,7 +114,7 @@
     <section class="portfolio-section" id="portafolio">
         <div class="portfolio-container">
             
-            <!-- Izquierda: Filtros y Videos -->
+            <!-- Filtros y Videos -->
             <div class="portfolio-left">
                 <div class="format-tabs reveal">
                     <div class="format-tab active" onclick="selectFormat('horizontal', this)">
@@ -128,9 +128,10 @@
                 </div>
 
                 <div class="category-tabs reveal">
-                    <button class="cat-btn active" onclick="selectCategory('gameplay', this)">gameplay</button>
-                    <button class="cat-btn" onclick="selectCategory('vlogs', this)">vlogs</button>
-                    <button class="cat-btn" onclick="selectCategory('other', this)">other</button>
+                    <button class="cat-btn active" data-cat="gameplay" onclick="selectCategory('gameplay', this)">gameplay</button>
+                    <button class="cat-btn" data-cat="vlogs" onclick="selectCategory('vlogs', this)">vlogs</button>
+                    <button class="cat-btn" data-cat="talking" onclick="selectCategory('talking', this)">talking head</button>
+                    <button class="cat-btn" data-cat="other" onclick="selectCategory('other', this)">other</button>
                 </div>
 
                 <div class="video-grid" id="video-grid">
@@ -142,35 +143,11 @@
                 </div>
             </div>
 
-            <!-- Derecha: Tarjeta de Precios -->
-            <div class="portfolio-right">
-                
-                <div class="pricing-wrapper reveal">
-                    <div class="pricing-card-tabs">
-                        <div class="card-tab active" id="tab-basic" onclick="switchPlan('basic')">> Basic</div>
-                        <div class="card-tab inactive" id="tab-standard" onclick="switchPlan('standard')">Standard</div>
-                    </div>
-                    
-                    <div class="pricing-card" id="pricing-card-body">
-                        <div class="pricing-content active-plan">
-                            <h3 id="pricing-price">4$</h3>
-                            <p class="rate" id="pricing-rate">por minuto</p>
-                            
-                            <ul class="features-list" id="pricing-features">
-                                </ul>
-                            
-                            <!-- AQUÍ ESTÁ EL BOTÓN ACTUALIZADO -->
-                            <button class="contact-btn" onclick="window.location.href='contact.html'">Contact Me</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
     <!-- Enlace al archivo JavaScript -->
-    <script src="main.js?v=2"></script>
+    <script src="main.js?v=3"></script>
     <div id="video-modal" class="modal-overlay" onclick="closeModal()">
         <div class="modal-content" id="modal-box" onclick="event.stopPropagation()">
             <button class="close-btn" onclick="closeModal()">✖</button>

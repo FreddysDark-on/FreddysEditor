@@ -2,136 +2,68 @@
 // --- 1. BASE DE DATOS DE TUS VIDEOS ---
 // =======================================================
 const misVideos = {
-    basic: {
-        horizontal: {
-            gameplay: [
-                "https://www.youtube.com/watch?v=FuB2WmA8lQQ&t", 
-                "https://www.youtube.com/watch?v=XPyRkFX3oqg&t", 
-                "https://www.youtube.com/watch?v=z7cUJdhe6jo&t", 
-                "https://www.youtube.com/watch?v=6XnbJFwk840"
-            ],
-            vlogs: [
-                "https://www.youtube.com/watch?v=2KeFkFTDbxc&t", 
-                "https://www.youtube.com/watch?v=O8M6ws55YwM&t", 
-                "https://www.youtube.com/watch?v=yQVcPLd_rs8&t", 
-                "https://www.youtube.com/watch?v=dncoPRb6C2Q"
-            ],
-            terror: ["", "", "", ""],
-            other: [
-                "https://www.youtube.com/watch?v=q6EB0VFBxD0&t", 
-                "https://www.youtube.com/watch?v=_fTfs2QRz9Y", 
-                "https://www.youtube.com/watch?v=5Fvnmtjk_ng&t", 
-                "https://www.youtube.com/watch?v=4MW9vLEEAT8&t",
-                "https://www.youtube.com/watch?v=rgn_X_09z0E&t",
-                "https://www.youtube.com/watch?v=p4VEgWzj2iA"
-            ]
-        },
-        vertical: {
-            gameplay: [
-                "https://www.tiktok.com/@frannight5/video/7633423425079463189?_r=1&_t=ZS-95q071ThbUb",
-                "https://www.tiktok.com/@frannight5/video/7633938789148495124?_r=1&_t=ZS-95q071ThbUb", 
-                "https://www.tiktok.com/@frannight5/video/7633045501520153876?_r=1&_t=ZS-95q071ThbUb", 
-                "https://youtube.com/shorts/yqppCMTW-dE" 
-            ],
-            vlogs: [
-                "https://www.youtube.com/shorts/7zrsmDm6Tjo", 
-                "", "", ""
-            ],
-            terror: [
-                "https://youtube.com/shorts/j92-7WlkM4c", 
-                "", "", ""
-            ],
-            other: [
-                 "https://www.tiktok.com/@frannight5/video/7633128143921941780?_r=1&_t=ZS-95q071ThbUb",
-                 "https://www.tiktok.com/@frannight5/video/7635278463955422485?_r=1&_t=ZS-95q071ThbUb",
-                 "https://www.tiktok.com/@frannight5/video/7634195180895194388?_r=1&_t=ZS-95q071ThbUb",
-                 "https://www.youtube.com/shorts/1p1ZeeiVRvQ"
-            ]
-        }
-    },
-    standard: {
-        horizontal: {
-            gameplay: ["", "", "", ""],
-            vlogs: ["https://www.youtube.com/watch?v=aK0RhImYEq0&t", "", "", ""],
-            terror: ["", "", "", ""],
-            other: [
-                "https://www.youtube.com/watch?v=Nr0oqcXib9Q", 
-                "https://www.youtube.com/watch?v=I08PYkhi8Lg"
-            ]
-        },
-        vertical: {
-            gameplay: ["", "", "", ""],
-            vlogs: ["", "", "", ""],
-            terror: ["", "", "", ""],
-            other: [
-                "https://www.tiktok.com/@frannight5/video/7632712154533186837?_r=1&_t=ZS-95q071ThbUb",
-                 "https://youtube.com/shorts/f2h2eibA4v4",
-                 "", ""
-            ]
-        }
-    }
-};
-
-const infoPrecios = {
     horizontal: {
-        basic: {
-            precio: "",
-            tarifa: "",
-            ventajas: [
-                "Basic transitions", 
-                "Zooms", 
-                "Subtitles", 
-                "Basic Sound Effects", 
-                "1-2 days delivery", 
-                "3 Revisions"
-            ]
-        },
-        standard: {
-            precio: "",
-            tarifa: "",
-            ventajas: [
-                "Everything above", 
-                "Better Sound Effects", 
-                "2D + 3D Basic Motion Graphics", 
-                "Graphics", 
-                "1-6 days delivery", 
-                "Unlimited Revisions"
-            ]
-        }
+        gameplay: [
+            "https://www.youtube.com/watch?v=FuB2WmA8lQQ&t", 
+            "https://www.youtube.com/watch?v=XPyRkFX3oqg&t", 
+            "https://www.youtube.com/watch?v=z7cUJdhe6jo&t", 
+            "https://www.youtube.com/watch?v=6XnbJFwk840"
+        ],
+        vlogs: [
+            "https://www.youtube.com/watch?v=2KeFkFTDbxc&t", 
+            "https://www.youtube.com/watch?v=O8M6ws55YwM&t", 
+            "https://www.youtube.com/watch?v=yQVcPLd_rs8&t", 
+            "https://www.youtube.com/watch?v=dncoPRb6C2Q",
+            "https://www.youtube.com/watch?v=aK0RhImYEq0&t",
+            "https://youtu.be/n2H238Qvhng",
+            "https://youtu.be/B6ap8FnrVCQ"
+        ],
+        // Videos hablando a cámara (solo hay en horizontal)
+        talking: [
+            "https://youtu.be/qSinQYmLKJI",
+            "https://youtu.be/QHCRj9MSKAc",
+            "https://youtu.be/uC03In0le74",
+            "https://youtu.be/FXHSdakZKI4"
+        ],
+        terror: [],
+        other: [
+            "https://www.youtube.com/watch?v=q6EB0VFBxD0&t", 
+            "https://www.youtube.com/watch?v=_fTfs2QRz9Y", 
+            "https://www.youtube.com/watch?v=5Fvnmtjk_ng&t", 
+            "https://www.youtube.com/watch?v=4MW9vLEEAT8&t",
+            "https://www.youtube.com/watch?v=rgn_X_09z0E&t",
+            "https://www.youtube.com/watch?v=p4VEgWzj2iA",
+            "https://www.youtube.com/watch?v=Nr0oqcXib9Q", 
+            "https://www.youtube.com/watch?v=I08PYkhi8Lg"
+        ]
     },
     vertical: {
-        basic: {
-            precio: "",
-            tarifa: "",
-            ventajas: [
-                "Basic transitions", 
-                "Zooms", 
-                "Subtitles", 
-                "Basic Sound Effects", 
-                "1-2 days delivery", 
-                "3 Revisions"
-            ]
-        },
-        standard: {
-            precio: "",
-            tarifa: "",
-            ventajas: [
-                "Everything above", 
-                "Dynamic Music", 
-                "2D + 3D Motion Graphics", 
-                "Graphics", 
-                "1-6 days delivery", 
-                "Unlimited Revisions"
-            ]
-        }
+        gameplay: [
+            "https://www.tiktok.com/@frannight5/video/7633423425079463189?_r=1&_t=ZS-95q071ThbUb",
+            "https://www.tiktok.com/@frannight5/video/7633938789148495124?_r=1&_t=ZS-95q071ThbUb", 
+            "https://www.tiktok.com/@frannight5/video/7633045501520153876?_r=1&_t=ZS-95q071ThbUb", 
+            "https://youtube.com/shorts/yqppCMTW-dE" 
+        ],
+        vlogs: [
+            "https://www.youtube.com/shorts/7zrsmDm6Tjo"
+        ],
+        terror: [
+            "https://youtube.com/shorts/j92-7WlkM4c"
+        ],
+        other: [
+             "https://www.tiktok.com/@frannight5/video/7633128143921941780?_r=1&_t=ZS-95q071ThbUb",
+             "https://www.tiktok.com/@frannight5/video/7635278463955422485?_r=1&_t=ZS-95q071ThbUb",
+             "https://www.tiktok.com/@frannight5/video/7634195180895194388?_r=1&_t=ZS-95q071ThbUb",
+             "https://www.youtube.com/shorts/1p1ZeeiVRvQ",
+             "https://www.tiktok.com/@frannight5/video/7632712154533186837?_r=1&_t=ZS-95q071ThbUb",
+             "https://youtube.com/shorts/f2h2eibA4v4"
+        ]
     }
 };
 
 
-let planActual = 'basic'; 
 let formatoActual = 'horizontal';
 let categoriaActual = 'gameplay';
-let renderId = 0;
 
 function getYoutubeId(url) {
     if (!url) return null;
@@ -140,87 +72,47 @@ function getYoutubeId(url) {
     return (match && match[2].length === 11) ? match[2] : null;
 }
 
-async function getTikTokThumbnail(url) {
-    try {
-        const response = await fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(url)}`);
-        if (!response.ok) return null;
-        const data = await response.json();
-        return data.thumbnail_url; 
-    } catch (error) {
-        console.error("Error API TikTok:", error);
-        return null;
-    }
+function getTikTokId(url) {
+    const match = url.match(/video\/(\d+)/);
+    return match ? match[1] : null;
+}
+
+// TikTok ya no da la miniatura por su API y las URLs de sus imágenes caducan,
+// así que las portadas están guardadas en thumbnails/tiktok-<id>.jpg.
+// Si agregás un TikTok nuevo, guardá su portada con ese nombre.
+function getTikTokThumbnail(url) {
+    const id = getTikTokId(url);
+    return id ? `thumbnails/tiktok-${id}.jpg` : null;
 }
 
 
-async function renderVideos() {
-    renderId++; 
-    const idActual = renderId;
-    
+function renderVideos() {
     const grid = document.getElementById('video-grid');
-    grid.innerHTML = '<p style="color:#6B7280; grid-column: 1 / -1;">Loading...</p>'; 
+    grid.classList.toggle('vertical-grid', formatoActual === 'vertical');
     
-    const linksCrudos = misVideos[planActual][formatoActual][categoriaActual] || [];
-    const linksValidos = linksCrudos.filter(link => link !== "");
+    const linksValidos = (misVideos[formatoActual][categoriaActual] || []).filter(link => link !== "");
 
     if (linksValidos.length === 0) {
-        if (idActual !== renderId) return;
-        
         grid.innerHTML = '<p style="color:#6B7280; grid-column: 1 / -1; font-style: italic;">No examples available at the moment :(</p>';
         return;
     }
 
-    const htmlPromesas = linksValidos.map(async (link) => {
+    grid.innerHTML = linksValidos.map(link => {
         let interiorHTML = '';
         
         if (link.includes("youtube.com") || link.includes("youtu.be")) {
             const ytId = getYoutubeId(link);
             if (ytId) {
-                interiorHTML = `<img src="https://img.youtube.com/vi/${ytId}/maxresdefault.jpg" alt="YT Thumbnail" class="yt-thumbnail">`;
+                interiorHTML = `<img src="https://img.youtube.com/vi/${ytId}/maxresdefault.jpg" alt="YT Thumbnail" class="yt-thumbnail" loading="lazy">`;
             }
         } 
         else if (link.includes("tiktok.com")) {
-            const tiktokThumb = await getTikTokThumbnail(link);
-            if (tiktokThumb) {
-                interiorHTML = `<img src="${tiktokThumb}" alt="TikTok Thumbnail" class="yt-thumbnail">`;
-            } else {
-                interiorHTML = `<span style="font-size:16px;">▶ Ver TikTok</span>`;
-            }
+            const tiktokThumb = getTikTokThumbnail(link);
+            interiorHTML = `<img src="${tiktokThumb}" alt="TikTok Thumbnail" class="yt-thumbnail" loading="lazy" onerror="this.replaceWith('▶ Ver TikTok')">`;
         }
         
         return `<a href="javascript:void(0)" onclick="openModal('${link}')" class="video-box-link">${interiorHTML}</a>`;
-    });
-
-    const elementosHtmlGenerados = await Promise.all(htmlPromesas);
-
-    if (idActual !== renderId) {
-        return; 
-    }
-
-    grid.innerHTML = elementosHtmlGenerados.join('');
-}
-
-function renderPrecios() {
-    const datosContrato = infoPrecios[formatoActual][planActual];
-    
-    document.getElementById('pricing-price').innerHTML = datosContrato.precio;
-    document.getElementById('pricing-rate').innerHTML = datosContrato.tarifa;
-    
-
-    const listaVentajas = document.getElementById('pricing-features');
-    listaVentajas.innerHTML = '';
-    
-    datosContrato.ventajas.forEach(ventaja => {
-        const li = document.createElement('li');
-        li.textContent = ventaja;
-        listaVentajas.appendChild(li);
-    });
-
-    if (planActual === 'standard') {
-        listaVentajas.classList.add('check-list');
-    } else {
-        listaVentajas.classList.remove('check-list');
-    }
+    }).join('');
 }
 
 function selectFormat(formato, element) {
@@ -228,8 +120,16 @@ function selectFormat(formato, element) {
     element.classList.add('active');
     
     formatoActual = formato;
+
+    // Ocultamos las categorías que no existen en este formato (ej: talking head solo en horizontal)
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.hidden = !(btn.dataset.cat in misVideos[formato]);
+    });
+    if (!(categoriaActual in misVideos[formato])) {
+        selectCategory('gameplay', document.querySelector('.cat-btn[data-cat="gameplay"]'));
+        return;
+    }
     renderVideos(); 
-    renderPrecios(); // Actualiza la tarjeta si Horizontal/Vertical tienen precios distintos
 }
 
 function selectCategory(categoria, element) {
@@ -240,34 +140,9 @@ function selectCategory(categoria, element) {
     renderVideos(); 
 }
 
-function switchPlan(plan) {
-    const tabBasic = document.getElementById('tab-basic');
-    const tabStandard = document.getElementById('tab-standard');
-    const pricingCardBody = document.getElementById('pricing-card-body');
-
-    planActual = plan;
-    renderVideos();
-    renderPrecios(); // Re-calcula la tarjeta al presionar Basic/Standard
-
-    if(plan === 'basic') {
-        tabBasic.classList.add('active'); tabBasic.classList.remove('inactive');
-        tabStandard.classList.add('inactive'); tabStandard.classList.remove('active');
-        tabBasic.innerHTML = "> Basic";
-        tabStandard.innerHTML = "Standard";
-        pricingCardBody.classList.remove('standard-active');
-    } else if(plan === 'standard') {
-        tabStandard.classList.add('active'); tabStandard.classList.remove('inactive');
-        tabBasic.classList.add('inactive'); tabBasic.classList.remove('active');
-        tabStandard.innerHTML = "> Standard";
-        tabBasic.innerHTML = "Basic";
-        pricingCardBody.classList.add('standard-active');
-    }
-}
-
 // Iniciar página
 window.onload = () => {
     renderVideos();
-    renderPrecios();
     initAnimaciones();
     initYtJobs();
 };
@@ -297,12 +172,10 @@ function openModal(url) {
     } 
     // 2. Procesar link de TikTok
     else if (url.includes('tiktok.com')) {
-        // Extraemos el ID del video de TikTok usando Expresiones Regulares
-        const regex = /video\/(\d+)/;
-        const match = url.match(regex);
-        if (match && match[1]) {
+        const tiktokId = getTikTokId(url);
+        if (tiktokId) {
             // URL especial de TikTok para incrustar reproductores
-            embedUrl = `https://www.tiktok.com/embed/v2/${match[1]}`;
+            embedUrl = `https://www.tiktok.com/embed/v2/${tiktokId}`;
             isVertical = true; // TikTok siempre es vertical
         }
     }
